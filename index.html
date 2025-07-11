@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Topo de Bolo Criativo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background: #fff; }
+        h1 { color: #b45200; }
+        input, button { padding: 10px; margin-top: 10px; width: 100%; max-width: 400px; }
+        #resultado, #editor { margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px; border: 1px solid #ccc; }
+        canvas { border: 1px solid #aaa; margin-top: 10px; background: #f0f8ff; }
+        .label { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body onload="inicializarCanvases()">
+    <h1>🎂 Gerador + Editor de Topos de Bolo</h1>
+    <input type="text" id="tema" placeholder="Digite qualquer tema criativo" />
+    <button onclick="gerarIdeia()">Gerar Ideia Criativa</button>
+
+    <div id="resultado">
+        <div class='label'>✨ Prévia Visual:</div>
+        <canvas id="preview" width="600" height="150"></canvas>
+        <br>
+        <button id="enviarEditor" style="display:none;">Quero esse topo no editor</button>
+    </div>
+
+    <div id="editor" style="display:none;">
+        <h2>🎨 Editor Interativo</h2>
+        <canvas id="canvas" width="600" height="350"></canvas><br>
+        <button onclick="addShape('circle')">Adicionar Círculo</button>
+        <button onclick="addShape('rect')">Adicionar Retângulo</button>
+        <button onclick="addShape('heart')">Adicionar Coração</button>
+        <button onclick="addShape('star')">Adicionar Estrela</button>
+        <button onclick="downloadSVG()">Baixar como SVG</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
